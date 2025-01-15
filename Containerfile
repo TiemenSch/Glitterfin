@@ -35,9 +35,8 @@ ARG SOURCE_IMAGE="bluefin"
 # - (and the above with testing rather than stable)
 ARG SOURCE_SUFFIX="-dx"
 
-## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
-ARG SOURCE_TAG="stable"
-
+## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, stable, latest
+ARG SOURCE_TAG="latest"
 
 ### 2. SOURCE IMAGE
 ## this is a standard Containerfile FROM using the build ARGs above to select the right upstream image
