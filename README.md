@@ -85,7 +85,7 @@ This provides users a method of verifying the image.
 1. First rebase on an unsigned image:
    
     ```bash
-    rpm-ostree rebase ostree-unverified-registry:ghcr.io/tiemensch/glitterfin:latest`
+    rpm-ostree rebase ostree-unverified-registry:ghcr.io/tiemensch/glitterfin:latest
     ```
 
 2. Reboot:
