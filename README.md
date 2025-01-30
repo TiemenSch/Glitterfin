@@ -79,3 +79,37 @@ This provides users a method of verifying the image.
     ```
 
 4. Commit the `cosign.pub` file into your git repository
+
+## Rebasing an existing installation.
+
+1. First rebase on an unsigned image:
+   
+    ```bash
+    rpm-ostree rebase ostree-unverified-registry:ghcr.io/tiemensch/glitterfin:latest`
+    ```
+
+2. Reboot:
+
+    ```bash
+    systemctl reboot
+    ```
+
+3. Rebase on the signed image:
+
+    ```bash
+    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/tiemensch/glitterfin:latest
+    ```
+
+4. (NVIDIA only) setup kernel arguments (once):
+
+    ```bash
+    ujust configure-nvidia
+    ```
+
+5. (NVIDIA optimus only) setup Optimus config.
+
+    ```bash
+    ujust configure-nvidia-optimus
+    ```
+
+    
