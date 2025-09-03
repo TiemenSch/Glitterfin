@@ -22,7 +22,7 @@ RELEASE="$(rpm -E %fedora)"
 # systemctl enable podman.socket
 
 # Install Firefox and the PWA extension.
-rpm-ostree install darktable firefox libxslt-devel libxml2-devel
+rpm-ostree install btrbk darktable firefox libxslt-devel libxml2-devel
 rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/firefoxpwa.repo
 rpm-ostree install firefoxpwa
