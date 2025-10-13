@@ -3,12 +3,12 @@ name: build-ublue-custom
 on:
   pull_request:
     branches:
-      - main
+      - nvidia
   schedule:
     - cron: '05 10 * * *'  # 10:05am UTC everyday
   push:
     branches:
-      - main
+      - nvidia
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
@@ -43,7 +43,7 @@ jobs:
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
           COMMIT_TAGS=()
-          BUILD_TAGS=()
+          BUILD_TAGS=("nvidia")
 
           # Have tags for tracking builds during pull request
           SHA_SHORT="${GITHUB_SHA::7}"
@@ -55,8 +55,7 @@ jobs:
               BUILD_TAGS+=("${TAG}-${TIMESTAMP}")
           done
 
-          BUILD_TAGS+=("${TIMESTAMP}")
-          BUILD_TAGS+=("latest")
+          BUILD_TAGS+=("nvidia")
 
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
               echo "Generated the following commit tags: "
