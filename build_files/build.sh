@@ -18,7 +18,7 @@ dnf5 install -y \
   libxslt-devel \
   libxml2-devel
 
-# Install Firefox PWA
+# Add Firefox PWA repo
 tee /etc/yum.repos.d/firefoxpwa.repo > /dev/null <<EOF
 [firefoxpwa]
 name=FirefoxPWA
@@ -30,8 +30,22 @@ repo_gpgcheck=1
 gpgcheck=1
 enabled=1
 EOF
-dnf5 -q makecache -y --disablerepo="*" --enablerepo="firefoxpwa"
-dnf5 install -y firefoxpwa
+
+# Add VS Codium repo
+tee -a /etc/yum.repos.d/vscodium.repo << 'EOF'
+[gitlab.com_paulcarroty_vscodium_repo]
+name=gitlab.com_paulcarroty_vscodium_repo
+baseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+metadata_expire=1h
+EOF
+
+# Update cache of the added repos only and install.
+dnf5 -q makecache -y --disablerepo="*" --enablerepo="firefoxpwa" --enablerepo="gitlab.com_paulcarroty_vscodium_repo"
+dnf5 install -y codium firefoxpwa
 
 # Use a COPR Example:
 #
