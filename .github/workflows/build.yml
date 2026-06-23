@@ -145,7 +145,7 @@ jobs:
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
-          build-args: "BASE=ghcr.io/ublue-os/bluefin-nvidia-open:stable"
+          build-args: "BASE=ghcr.io/ublue-os/bluefin-dx-nvidia-open:stable-daily"
           tags: ${{ steps.nvidia_metadata.outputs.tags }}
           labels: ${{ steps.nvidia_metadata.outputs.labels }}
           oci: false

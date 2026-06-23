@@ -1,4 +1,4 @@
-ARG BASE="ghcr.io/ublue-os/bluefin:stable-daily"
+ARG BASE="ghcr.io/ublue-os/bluefin-dx:stable-daily"
 
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
