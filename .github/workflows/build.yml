@@ -70,7 +70,8 @@ jobs:
           tags: |
             type=raw,value=nvidia
             type=raw,value=nvidia.{{date 'YYYYMMDD'}}
-            type=sha,enable=nvidia.${{ github.event_name == 'pull_request' }}
+            type=sha,enable=${{ github.event_name == 'pull_request' }}
+            type=ref,event=pr
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}/${{ github.sha }}/README.md
             org.opencontainers.image.created=${{ steps.date.outputs.date }}
