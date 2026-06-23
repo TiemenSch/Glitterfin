@@ -1,9 +1,11 @@
+ARG BASE="ghcr.io/ublue-os/bluefin:stable"
+
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bluefin:stable
+FROM ${BASE}
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
