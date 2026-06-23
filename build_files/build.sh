@@ -12,11 +12,15 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y \
   btrbk \
+  cockpit-podman \
   darktable \
   firefox \
   libffi-devel \
   libxslt-devel \
-  libxml2-devel
+  libxml2-devel \
+  setroubleshoot-server \
+  setroubleshoot-plugins
+
 
 # Add Firefox PWA repo
 tee /etc/yum.repos.d/firefoxpwa.repo > /dev/null <<EOF
