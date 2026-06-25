@@ -2,6 +2,9 @@
 
 set -ouex pipefail
 
+### Copy Files to Image
+rsync -rvK /ctx/glitterfin/ /
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
