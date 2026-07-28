@@ -63,3 +63,10 @@ dnf5 install -y codium firefoxpwa
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+# Enable cpuset delegation for rootless Podman.
+mkdir -p /etc/systemd/system/user@.service.d
+tee /etc/systemd/system/user@.service.d/delegate.service << 'EOF'
+[Service]
+Delegate=cpu cpuset io memory pids
+EOF
