@@ -66,7 +66,7 @@ systemctl enable podman.socket
 
 # Enable cpuset delegation for rootless Podman.
 mkdir -p /etc/systemd/system/user@.service.d
-tee /etc/systemd/system/user@.service.d/delegate.service << 'EOF'
+tee /etc/systemd/system/user@.service.d/delegate.conf << 'EOF'
 [Service]
 Delegate=cpu cpuset io memory pids
 EOF
