@@ -68,5 +68,5 @@ systemctl enable podman.socket
 mkdir -p /etc/systemd/system/user@.service.d
 tee /etc/systemd/system/user@.service.d/delegate.conf << 'EOF'
 [Service]
-Delegate=cpu cpuset io memory pids
+Delegate=cpu cpuset io memory hugetlb pids
 EOF
