@@ -15,7 +15,6 @@ rsync -rvK /ctx/glitterfin/ /
 # this installs a package from fedora repos
 dnf5 install -y \
   btrbk \
-  darktable \
   firefox \
   libffi-devel \
   libxslt-devel \
