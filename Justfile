@@ -109,7 +109,7 @@ build-nvidia $target_image=image_name $tag=default_tag:
     fi
 
     podman build \
-        --build-arg BASE=ghcr.io/ublue-os/bluefin-nvidia-open:stable \
+        --build-arg BASE=ghcr.io/ublue-os/bluefin-nvidia-open:stable-daily \
         "${BUILD_ARGS[@]}" \
         --pull=newer \
         --tag "${target_image}:nvidia-${tag}" \
